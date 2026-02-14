@@ -198,6 +198,9 @@ export class Game {
 
   getBlockedPositions() {
     const cells = [...this.snake.segments, ...this.obstacles];
+    if (this.food?.position) {
+      cells.push(this.food.position);
+    }
     if (this.powerups.spawnedPowerup) {
       cells.push(this.powerups.spawnedPowerup.position);
     }
